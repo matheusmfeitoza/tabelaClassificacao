@@ -1,26 +1,23 @@
-let matheus = {
-    nome: 'Matheus',
-    vitorias: 2,
-    empates: 3,
-    derrotas: 2,
-    pontos: 0
-}
-let thais = {
-    nome: 'Thais',
-    vitorias: 3,
-    empates: 4,
-    derrotas: 3,
-    pontos: 0
-}
+const getPlayerName = document.getElementById("nomeJogador")
+const getBtnAddPlayer = document.getElementById("enviaJogador");
+
+getBtnAddPlayer.addEventListener('click',(e)=>{
+    e.preventDefault();
+    let nomePlayer = getPlayerName.value;
+    if(nomePlayer ==='' || nomePlayer === null){
+     return   
+    }else{
+        jogadores.push({nome:nomePlayer,vitorias: 0, empates: 0, derrotas: 0, pontos: 0})
+        getPlayerName.value = '';
+        exibirJogadoresNaTela(jogadores);
+    }
+});
+let jogadores = [];
 
 function calcularPontos(jogador){
     let pontos = (jogador.vitorias * 3) + jogador.empates;
     return pontos;
 }
-matheus.pontos = calcularPontos(matheus);
-thais.pontos = calcularPontos(thais);
-
-var jogadores = [matheus,thais];
 
 function exibirJogadoresNaTela(players){
     var html = '';
@@ -34,6 +31,7 @@ function exibirJogadoresNaTela(players){
         html += "<td><button onclick='addEmpate("+ i + ")'>Empate</button></td>";
         html += "<td><button onclick='addDerrota("+ i + ")'>Derrota</button></td>";
         html += "<td><button onclick='zerarTudo("+ i + ")'>Zerar</button></td></tr>";
+        html += "<td><button onclick='removePlayer("+ i + ")'>Remover Jogador</button></td></tr>";
     }
     var getTabela = document.getElementById("tabela-jogadores");
     getTabela.innerHTML = html;
@@ -41,11 +39,11 @@ function exibirJogadoresNaTela(players){
 exibirJogadoresNaTela(jogadores);
 
 function zerarTudo(i){
-    let jogador = jogadores[i];
-    jogador.vitorias = 0;
-    jogador.empates = 0;
-    jogador.derrotas = 0;
-    jogador.pontos = calcularPontos(jogador);
+    // let jogador = jogadores[i];
+    jogadores[i].vitorias = 0;
+    jogadores[i].empates = 0;
+    jogadores[i].derrotas = 0;
+    jogadores[i].pontos = calcularPontos(jogadores[i]);
     exibirJogadoresNaTela(jogadores)
 }
 function addVitoria(i){
@@ -64,5 +62,9 @@ function addEmpate(i){
 function addDerrota(i){
     let jogador = jogadores[i];
     jogador.derrotas++;
+    exibirJogadoresNaTela(jogadores)
+}
+function removePlayer(i){
+    jogadores.splice(i,1);
     exibirJogadoresNaTela(jogadores)
 }
