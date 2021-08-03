@@ -30,7 +30,7 @@ function exibirJogadoresNaTela(players){
         html += "<td><button onclick='addVitoria("+ i + ")'>Vitória</button></td>";
         html += "<td><button onclick='addEmpate("+ i + ")'>Empate</button></td>";
         html += "<td><button onclick='addDerrota("+ i + ")'>Derrota</button></td>";
-        html += "<td><button onclick='zerarTudo("+ i + ")'>Zerar</button></td></tr>";
+        html += "<td><button onclick='zerarTudo("+ i + ")'>Zerar</button></td>";
         html += "<td><button onclick='removePlayer("+ i + ")'>Remover Jogador</button></td></tr>";
     }
     var getTabela = document.getElementById("tabela-jogadores");
