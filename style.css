@@ -58,6 +58,14 @@ th {
 .btnEvent:hover {
   background-color: #212d40;
 }
+.footer {
+  text-align: center;
+  color: white;
+  margin-top: 50px;
+}
+.footer p a {
+  color: white;
+}
 @media (max-width: 620px) {
   table {
     overflow-x: auto;
