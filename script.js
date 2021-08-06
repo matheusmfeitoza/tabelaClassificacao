@@ -27,11 +27,11 @@ function exibirJogadoresNaTela(players){
         html += "<td>" + players[i].empates + "</td>";
         html += "<td>" + players[i].derrotas + "</td>";
         html += "<td>" + players[i].pontos + "</td>";
-        html += "<td><button onclick='addVitoria("+ i + ")'>Vitória</button></td>";
-        html += "<td><button onclick='addEmpate("+ i + ")'>Empate</button></td>";
-        html += "<td><button onclick='addDerrota("+ i + ")'>Derrota</button></td>";
-        html += "<td><button onclick='zerarTudo("+ i + ")'>Zerar</button></td>";
-        html += "<td><button onclick='removePlayer("+ i + ")'>Remover Jogador</button></td></tr>";
+        html += "<td><button onclick='addVitoria("+ i + ")' class='btnEvent'>Vitória</button></td>";
+        html += "<td><button onclick='addEmpate("+ i + ")' class='btnEvent'>Empate</button></td>";
+        html += "<td><button onclick='addDerrota("+ i + ")' class='btnEvent'>Derrota</button></td>";
+        html += "<td><button onclick='zerarTudo("+ i + ")' class='btnEvent'>Zerar</button></td>";
+        html += "<td><button onclick='removePlayer("+ i + ")' class='btnEvent'>Remover Jogador</button></td></tr>";
     }
     var getTabela = document.getElementById("tabela-jogadores");
     getTabela.innerHTML = html;
